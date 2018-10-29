@@ -19,10 +19,6 @@ struct tablefile_entry {
 	std::string aa_sequence {};
 };
 
-struct whatever {
-	bool yay {};
-	std::string what {};
-};
 
 struct tablefile {
 	std::filesystem::path file {};

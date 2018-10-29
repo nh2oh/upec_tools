@@ -1,11 +1,11 @@
 #include "tablefile.h"
 #include <string>
-//#include <sstream>
 #include <filesystem>
 #include <iostream>
 #include <fstream>
 #include <cmath>
 
+// Skips the first line of the file, assumed to be the header
 tablefile read_tablefile(const std::filesystem::path& fp) {
 	std::fstream fs {fp,std::ios::in};
 	if (!fs.is_open() || fs.fail()) {
@@ -13,12 +13,17 @@ tablefile read_tablefile(const std::filesystem::path& fp) {
 		std::abort();
 	}
 
+	tablefile res {};  res.file = fp;  // "result"
 	
 	std::string delim {'\t'};
-	std::string cl {};
-	tablefile res {};  res.file = fp;
-	
-	std::getline(fs, cl);  // Skip the first line, assumed to be col headers
+	std::string cl {};  // "current line"
+	std::string expect_header{"contig_id	feature_id	type	location	start	stop	strand	function	aliases	figfam	evidence_codes	nucleotide_sequence	aa_sequence"};
+
+	std::getline(fs, cl);  // The first line must eb the expected col headers
+	if (cl != expect_header) {
+		std::cout << "Error reading header" << std::endl;
+		std::abort();
+	}
 	while (!fs.eof()) {
 		std::getline(fs,cl);
 		if (cl.size() == 0) {
@@ -45,9 +50,6 @@ tablefile read_tablefile(const std::filesystem::path& fp) {
 		cl.erase(0, epos+delim.size());
 
 		epos = cl.find(delim, spos);
-		if (epos == std::string::npos) {
-			break;
-		}
 		curr_tfe.start = std::stoi(cl.substr(spos, epos));
 		cl.erase(0, epos+delim.size());
 
