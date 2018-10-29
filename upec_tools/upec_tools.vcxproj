@@ -160,9 +160,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="strutils.cpp" />
     <ClCompile Include="tablefile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="strutils.h" />
     <ClInclude Include="tablefile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

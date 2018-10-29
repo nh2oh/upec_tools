@@ -1,4 +1,5 @@
 #include "tablefile.h"
+#include "strutils.h"
 #include <string>
 #include <filesystem>
 #include <iostream>
@@ -15,23 +16,46 @@ tablefile read_tablefile(const std::filesystem::path& fp) {
 
 	tablefile res {};  res.file = fp;  // "result"
 	
-	std::string delim {'\t'};
+	std::string delim {"\t"};
+	int expect_n_fields {13};
+
 	std::string cl {};  // "current line"
 	std::string expect_header{"contig_id	feature_id	type	location	start	stop	strand	function	aliases	figfam	evidence_codes	nucleotide_sequence	aa_sequence"};
-
+	int curr_line_num {1};
 	std::getline(fs, cl);  // The first line must eb the expected col headers
 	if (cl != expect_header) {
 		std::cout << "Error reading header" << std::endl;
 		std::abort();
 	}
 	while (!fs.eof()) {
+		++curr_line_num;
 		std::getline(fs,cl);
 		if (cl.size() == 0) {
 			continue;
 		};
 
 		tablefile_entry curr_tfe {};
-
+		auto vs = strtok(cl,delim);
+		if (vs.size() != expect_n_fields) {
+			std::cout << "Error reading line " << curr_line_num << ": \n"
+				<< cl << "\n" << "Expected " << expect_n_fields << " but "
+				<< "found " << vs.size() << std::endl;
+			std::abort();
+		}
+		curr_tfe.contig_id = vs[0];
+		curr_tfe.feature_id = vs[1];
+		curr_tfe.type = vs[2];
+		curr_tfe.location = vs[3];
+		curr_tfe.start = std::stoi( vs[4]);
+		curr_tfe.stop = std::stoi( vs[5]);
+		curr_tfe.strand = vs[6]=="+" ? true : false;
+		curr_tfe.function =  vs[7];
+		curr_tfe.aliases =  vs[8];
+		curr_tfe.figfam =  vs[9];
+		curr_tfe.evidence_codes =  vs[10];
+		curr_tfe.nucleotide_sequence =  vs[11];
+		curr_tfe.aa_sequence =  vs[12];
+		/*
 		size_t spos{0}; size_t epos{0};
 		epos = cl.find(delim,spos);
 		curr_tfe.contig_id = cl.substr(spos,epos);
@@ -84,6 +108,7 @@ tablefile read_tablefile(const std::filesystem::path& fp) {
 		epos = cl.find(delim, spos);
 		curr_tfe.aa_sequence = cl.substr(spos, epos);
 		cl.erase(0, epos+delim.size());
+		*/
 
 		res.data.push_back(curr_tfe);
 	}
