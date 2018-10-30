@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <array>
-
+/*
 class amino_acid {
 public:
 	explicit amino_acid()=default;
@@ -27,7 +27,7 @@ private:
 	//static const std::array<char,20> three_letter_codes;
 	//static const std::array<char,20> names;
 };
-
+*/
 
 
 

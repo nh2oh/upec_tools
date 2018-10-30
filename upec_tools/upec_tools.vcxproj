@@ -160,12 +160,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="biotypes.cpp" />
+    <ClCompile Include="fasta_genome.cpp" />
+    <ClCompile Include="junk.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="strutils.cpp" />
     <ClCompile Include="tablefile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="biotypes.h" />
+    <ClInclude Include="fasta_genome.h" />
     <ClInclude Include="strutils.h" />
     <ClInclude Include="tablefile.h" />
   </ItemGroup>

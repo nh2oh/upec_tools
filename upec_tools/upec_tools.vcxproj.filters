@@ -27,6 +27,12 @@
     <ClCompile Include="biotypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fasta_genome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="junk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tablefile.h">
@@ -36,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="biotypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fasta_genome.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -102,3 +102,29 @@ bool check_tablefile(const tablefile& tf) {
 	return true;
 }
 
+
+
+std::string tablefile2fastafile(const tablefile& tf, const std::filesystem::path& ffp) {
+	std::string ff_contents {};
+
+	for (const auto& e : tf.data) {
+		ff_contents += ">";
+		ff_contents += e.contig_id + " " + e.feature_id + " ";
+		ff_contents += "start=[" + std::to_string(e.start) + "] ";
+		ff_contents += "stop=[" + std::to_string(e.stop) + "] ";
+		ff_contents += "aliases=[" + e.aliases + "] ";
+		ff_contents += "figfam=[" + e.figfam + "] ";
+		ff_contents += "\n";
+		ff_contents += e.aa_sequence;
+		ff_contents += "\n\n";
+	}
+
+	std::fstream ff {ffp,std::ios::out};
+	ff << ff_contents;
+	return "yay";
+	ff.close();
+}
+
+
+
+

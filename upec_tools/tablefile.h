@@ -29,6 +29,6 @@ tablefile read_tablefile(const std::filesystem::path&);
 
 bool check_tablefile(const tablefile&);
 
-
+std::string tablefile2fastafile(const tablefile&, const std::filesystem::path&);
 
 

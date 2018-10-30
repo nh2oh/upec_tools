@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 
+
 // Split a string at instances of tk, stripping the tk's from the result.  
 std::vector<std::string> strtok(const std::string& s, const std::string& tk) {
 	std::vector<std::string> vs {};
@@ -19,3 +20,18 @@ std::vector<std::string> strtok(const std::string& s, const std::string& tk) {
 
 	return vs;
 }
+
+
+
+std::vector<std::string> strfields(const std::string& s, 
+	const std::string& fs, const std::string& fe) {
+	
+	auto vs = strtok(s,fs);
+	for (auto& e : vs) {
+		auto p_e = std::search(e.begin(),e.end(), fe.begin(), fe.end());
+		e = {e.begin(), p_e};
+	}
+
+	return vs;
+}
+
