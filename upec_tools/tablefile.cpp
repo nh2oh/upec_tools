@@ -55,60 +55,6 @@ tablefile read_tablefile(const std::filesystem::path& fp) {
 		curr_tfe.evidence_codes =  vs[10];
 		curr_tfe.nucleotide_sequence =  vs[11];
 		curr_tfe.aa_sequence =  vs[12];
-		/*
-		size_t spos{0}; size_t epos{0};
-		epos = cl.find(delim,spos);
-		curr_tfe.contig_id = cl.substr(spos,epos);
-		cl.erase(0, epos+delim.size());
-		
-		epos = cl.find(delim,spos);
-		curr_tfe.feature_id = cl.substr(spos,epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.type = cl.substr(spos,epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.location = cl.substr(spos, epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.start = std::stoi(cl.substr(spos, epos));
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.stop = std::stoi(cl.substr(spos, epos));
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.strand = cl.substr(spos,epos)=="+" ? true : false;
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.function = cl.substr(spos, epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.aliases = cl.substr(spos, epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.figfam = cl.substr(spos, epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.evidence_codes = cl.substr(spos, epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.nucleotide_sequence = cl.substr(spos, epos);
-		cl.erase(0, epos+delim.size());
-
-		epos = cl.find(delim, spos);
-		curr_tfe.aa_sequence = cl.substr(spos, epos);
-		cl.erase(0, epos+delim.size());
-		*/
 
 		res.data.push_back(curr_tfe);
 	}

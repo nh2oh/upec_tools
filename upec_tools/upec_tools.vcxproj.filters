@@ -24,12 +24,18 @@
     <ClCompile Include="strutils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="biotypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tablefile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="strutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="biotypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
