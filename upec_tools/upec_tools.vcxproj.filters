@@ -33,6 +33,9 @@
     <ClCompile Include="junk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="blast_tools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tablefile.h">

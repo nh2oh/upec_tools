@@ -17,7 +17,7 @@ fasta_genome read_fgfile(const std::filesystem::path& fp) {
 	std::string cl{};  // "current line"
 	std::getline(fs, cl);  // The first line must be the expected col headers
 	if (cl.size() < 1 || cl[0] != '>') {
-		std::cout << "Error reading header line: Expected > ... , Insread got:\n"
+		std::cout << "Error reading header line: Expected > ... , Instead got:\n"
 			<< cl << std::endl;
 		std::abort();
 	}

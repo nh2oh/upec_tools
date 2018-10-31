@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="biotypes.cpp" />
+    <ClCompile Include="blast_tools.cpp" />
     <ClCompile Include="fasta_genome.cpp" />
     <ClCompile Include="junk.cpp" />
     <ClCompile Include="main.cpp" />
