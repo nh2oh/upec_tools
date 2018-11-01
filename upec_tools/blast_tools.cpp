@@ -52,6 +52,15 @@ std::string print_commands() {
 	-max_target_seqs 5
 
 
+	blastp.exe
+	-db ..\blast_dbs\GCF_000013265.1_ASM1326v1_protein_bdb
+	-out ..\UTI12_BlstResult.txt 
+	-query ..\UTI12_fastaprot.txt
+	-num_threads 4
+	-max_target_seqs 5
+	-outfmt "6 qacc sacc qstart qend qlen sstart send slen evalue bitscore score pident"
+
+	blastp.exe -db ..\blast_dbs\GCF_000013265.1_ASM1326v1_protein_bdb -out ..\UTI12_BlstResult.txt -query ..\UTI12_fastaprot.txt -num_threads 4 -max_target_seqs 5 -outfmt "6 qacc sacc qstart qend qlen sstart send slen evalue bitscore score pident"
 
 
 
