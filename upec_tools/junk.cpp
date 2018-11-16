@@ -4,9 +4,7 @@
 #include <vector>
 #include <string>
 
-
-
-
+/*
 int junk() {
 
 	std::string expect_header{"contig_id	feature_id	type	location	start	stop	strand	function	aliases	figfam	evidence_codes	nucleotide_sequence	aa_sequence"};
@@ -25,5 +23,4 @@ int junk() {
 	return 0;
 }
 
-
-
+*/

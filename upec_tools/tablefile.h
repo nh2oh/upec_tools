@@ -31,4 +31,21 @@ bool check_tablefile(const tablefile&);
 
 std::string tablefile2fastafile(const tablefile&, const std::filesystem::path&);
 
+struct tablefile_stats {
+	int64_t num_rna {0};
+	int64_t num_prot {0};
+	int64_t mean_len_prot {0};
+	int64_t mean_len_rna {0};
+};
 
+tablefile_stats calc_tablefilestats(const tablefile&);
+
+
+struct dbk_interest {
+	std::string name {};
+	int64_t start {};
+	int64_t stop {};
+	std::string function {};
+};
+
+std::vector<dbk_interest> annotate_dbk_interest(const std::filesystem::path&, const tablefile&);
