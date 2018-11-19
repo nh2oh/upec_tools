@@ -11,7 +11,7 @@
 tablefile read_tablefile(const std::filesystem::path& fp) {
 	std::fstream fs {fp,std::ios::in};
 	if (!fs.is_open() || fs.fail()) {
-		std::cout << "Error opening file, idiot:  " << std::filesystem::absolute(fp) << std::endl;
+		std::cout << "Error opening file:  " << std::filesystem::absolute(fp) << std::endl;
 		std::abort();
 	}
 

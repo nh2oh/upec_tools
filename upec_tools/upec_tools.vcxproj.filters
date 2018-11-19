@@ -36,6 +36,9 @@
     <ClCompile Include="blast_tools.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="dlm_rw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tablefile.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fasta_genome.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dlm_rw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

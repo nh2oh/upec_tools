@@ -7,4 +7,4 @@
 std::vector<std::string> strtok(const std::string&, const std::string&);
 
 // Extract delimited fields within a string.  
-std::vector<std::string> strfields(const std::string&, const std::string&, const std::string&);
+//std::vector<std::string> strfields(const std::string&, const std::string&, const std::string&);

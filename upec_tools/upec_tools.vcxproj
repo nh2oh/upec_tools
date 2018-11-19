@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="biotypes.cpp" />
     <ClCompile Include="blast_tools.cpp" />
+    <ClCompile Include="dlm_rw.cpp" />
     <ClCompile Include="fasta_genome.cpp" />
     <ClCompile Include="junk.cpp" />
     <ClCompile Include="main.cpp" />
@@ -169,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="biotypes.h" />
+    <ClInclude Include="dlm_rw.h" />
     <ClInclude Include="fasta_genome.h" />
     <ClInclude Include="strutils.h" />
     <ClInclude Include="tablefile.h" />
