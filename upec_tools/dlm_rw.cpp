@@ -17,6 +17,7 @@ table::table(const std::vector<std::vector<std::string>>& t, bool has_headers) {
 
 	if (has_headers && t.size() >= 1) {
 		m_ch = t[0];
+		// TODO:  Require these be unique
 	}
 	
 	int idx_start = has_headers ? 1 : 0;
@@ -78,7 +79,7 @@ std::string table::cell(int ridx, const std::string& cname) const {
 }
 
 int table::cname2cidx(const std::string& cname) const {
-	auto it = std::find(m_ch.begin,m_ch.end,cname);
+	auto it = std::find(m_ch.begin(),m_ch.end(),cname);
 	if (it == m_ch.end()) {
 		std::cout << "requested col cname=\"" << cname << "\" does not exist.";
 		std::abort();
@@ -96,6 +97,7 @@ std::vector<std::vector<std::string>> dlmread(const std::filesystem::path& fp, c
 		std::abort();
 	}
 	
+	std::vector<std::vector<std::string>> res {};
 	std::string cl {};
 	int curr_line_num {0};
 	while (!fs.eof()) {
@@ -106,11 +108,9 @@ std::vector<std::vector<std::string>> dlmread(const std::filesystem::path& fp, c
 		};
 
 		auto curr_tks = strtok(cl,delim);
-
+		res.push_back(curr_tks);
 		cl.clear();
 	}
-
-	std::vector<std::vector<std::string>> res {};
 
 	return res;
 }
